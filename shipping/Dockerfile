@@ -1,5 +1,6 @@
 FROM debian:10 AS build
-RUN sudo apt-get update && sudo apt-get -y install maven
+RUN apt-get purge ca-certificates-java
+RUN apt-get update && apt-get -y install maven
 WORKDIR /opt/shipping
 COPY pom.xml /opt/shipping/
 RUN mvn dependency:resolve
