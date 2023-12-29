@@ -1,5 +1,5 @@
-FROM debian:10 AS build
-RUN apt-get purge ca-certificates-java
+FROM debian:10 AS build 
+RUN apt-get install -t jessie-backports  openjdk-8-jre-headless ca-certificates-java 
 RUN apt-get update && apt-get -y install maven
 WORKDIR /opt/shipping
 COPY pom.xml /opt/shipping/
