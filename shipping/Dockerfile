@@ -1,4 +1,10 @@
 FROM debian:10 AS build
+
+RUN apt-get update \
+    && apt-get install -y maven \
+    && rm -rf /var/lib/apt/lists/*
+
+CMD ["mvn", "--version"]
 RUN apt-get update && apt-get -y install maven
 WORKDIR /opt/shipping
 COPY pom.xml /opt/shipping/
