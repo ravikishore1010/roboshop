@@ -1,5 +1,6 @@
 FROM debian:10 AS build
-RUN apt-get update && apt-get -y install maven
+RUN sed -i 's/deb.debian.org/mirrors.ubuntu.com/g' /etc/apt/sources.list \
+    && apt-get update && apt-get -y install maven
 WORKDIR /opt/shipping
 COPY pom.xml /opt/shipping/
 RUN mvn dependency:resolve
