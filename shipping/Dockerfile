@@ -1,7 +1,6 @@
 FROM debian:10 AS build
 RUN \
  apt-get update \
- && apt-get install -y \
  && apt-get install -y maven \
    git-core
 
