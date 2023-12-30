@@ -1,4 +1,4 @@
-FROM debian:10 AS build
+FROM debian:latest AS build
  # Install maven
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive \
