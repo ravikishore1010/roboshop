@@ -1,5 +1,4 @@
 FROM debian:10 AS build
-
 RUN ["/bin/bash""apt update && apt install -y maven"]
 
 
