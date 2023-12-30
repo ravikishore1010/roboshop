@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:latest
 # Install maven
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive \
