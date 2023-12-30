@@ -3,6 +3,7 @@ RUN \
  apt-get update \
  && apt-get install -y \
    git-core
+RUN apt-get install -y maven
 # #
 # # Build
 # #
