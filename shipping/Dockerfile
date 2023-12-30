@@ -1,4 +1,4 @@
-FROM java:8
+FROM ubuntu:latest
 # Install maven
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive \
