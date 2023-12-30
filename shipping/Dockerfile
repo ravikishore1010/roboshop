@@ -1,12 +1,8 @@
 FROM debian:10 AS build
-RUN : \
+RUN  \
     && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-        --no-install-recommends \
-        maven \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lista/* \
-    && :
+    && apt-get install -y \
+       maven
 
 
 
@@ -16,7 +12,6 @@ RUN : \
 
 
 
-    
 # # Build
 # #
 # FROM debian:10 AS build
