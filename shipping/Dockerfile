@@ -1,5 +1,6 @@
 FROM debian:10 AS build 
-RUN apt-get update && apt-get install -y maven
+RUN apt-get update && RUN apt-get install -y openjdk-8-jdk
+RUN apt-get install -y maven
 WORKDIR /opt/shipping
 # #
 # # Build
