@@ -1,9 +1,6 @@
 FROM debian:10 AS build
-SHELL ["/bin/bash", "-c"]
-RUN  \
-    apt-get update \
-    && apt-get install -y \
-       maven
+
+RUN ["/bin/bash","apt update && apt install -y maven"]
 
 
 
