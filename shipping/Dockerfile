@@ -1,8 +1,10 @@
 FROM debian:10 AS build
-RUN \
-  apt-get update \
-  && apt-get install -y \
-    git-core
+# Install maven
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y maven \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/* 
 
 
 
