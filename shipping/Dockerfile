@@ -13,7 +13,7 @@ COPY src /opt/shipping/src/
 RUN mvn package
 
 
-FROM openjdk:8-jdk
+FROM openjdk:8-jre-alpine
 EXPOSE 8080
 WORKDIR /opt/shipping
 ENV CART_ENDPOINT=cart:8080
