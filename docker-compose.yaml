@@ -47,7 +47,7 @@ services:
     container_name: mysql
 
   shipping:
-    image: macharavikishore/shipping:v2
+    image: macharavikishore/shipping:v3
     container_name: shipping
     depends_on:
     - mysql
