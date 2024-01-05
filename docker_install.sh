@@ -4,7 +4,7 @@
 sudo yum update -y
 
 # Install Docker
-sudo yum install docker -y
+sudo yum install -y docker
 
 # Start the Docker service
 sudo service docker start
