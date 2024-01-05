@@ -4,7 +4,7 @@ networks:
   driver: bridge
 services:
   web:
-    image: web:v1
+    image: macharavikishore/web:v1
     container_name: web
     ports:
     - "80:80"
@@ -17,11 +17,11 @@ services:
     - ratings
     - payment
   mongodb:
-    image: mongodb:v1
+    image: macharavikishore/mongodb:v1
     container_name: mongodb
 
   catalogue:
-    image: catalogue:v1
+    image: macharavikishore/catalogue:v1
     container_name: catalogue
     depends_on:
     - mongodb
@@ -31,23 +31,23 @@ services:
     container_name: redis 
 
   user:
-    image: user:v1
+    image: macharavikishore/user:v1
     container_name: user
     depends_on:
     - mongodb
     - redis
   cart:
-    image: cart:v1
+    image: macharavikishore/cart:v1
     container_name: cart
     depends_on:
     - redis
     - catalogue
   mysql:
-    image: mysql:v1
+    image: macharavikishore/mysql:v1
     container_name: mysql
 
   shipping:
-    image: shipping:v1
+    image: macharavikishore/shipping:v1
     container_name: shipping
     depends_on:
     - mysql
@@ -57,13 +57,13 @@ services:
     container_name: rabbitmq
 
   payment:
-    image: payment:v1
+    image: macharavikishore/payment:v1
     container_name: payment
     depends_on:
     - rabbitmq
 
   ratings:
-    image: ratings:v1
+    image: macharavikishore/ratings:v1
     container_name: ratings
     depends_on:
     - mysql
