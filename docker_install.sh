@@ -25,4 +25,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Verify Docker Compose installation
 docker-compose --version
 
+docker --version
+
+echo "Docker  have been installed."
+
+
 echo "Docker and Docker Compose have been installed."
