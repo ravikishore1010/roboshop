@@ -2,6 +2,38 @@ version: '3.9'
 networks:
  my-networkrk:
   driver: bridge
+
+volumes:
+  mysql:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ec2-user/mysql
+
+
+  mongodb:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ec2-user/mongodb
+
+
+  redis:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ec2-user/redis
+
+  rabbitmq:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/ec2-user/rabbitmq
+      
 services:
   web:
     image: macharavikishore/web:v1
@@ -19,6 +51,10 @@ services:
   mongodb:
     image: macharavikishore/mongodb:v1
     container_name: mongodb
+    volumes:
+      - mongodb:/data/db
+
+
 
   catalogue:
     image: macharavikishore/catalogue:v1
@@ -28,7 +64,10 @@ services:
 
   redis:
     image: redis
-    container_name: redis 
+    container_name: redis
+    volumes:
+      - redis:/data
+
 
   user:
     image: macharavikishore/user:v1
@@ -45,6 +84,8 @@ services:
   mysql:
     image: macharavikishore/mysql:v1
     container_name: mysql
+    volumes:
+      - mysql:/var/lib/mysql
 
   shipping:
     image: macharavikishore/shipping:v3
@@ -55,6 +96,9 @@ services:
   rabbitmq:
     image: rabbitmq
     container_name: rabbitmq
+    volumes:
+      - rabbitmq:/var/lib/rabbitmq
+
 
   payment:
     image: macharavikishore/payment:v1
